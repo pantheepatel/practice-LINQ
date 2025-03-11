@@ -1,0 +1,62 @@
+What is LINQ?
+LINQ (Language Integrated Query) is a query syntax in C# that allows you to retrieve and manipulate data from various sources (Collections, Databases, XML, etc.) using a single, consistent query language.
+
+Why Use LINQ?
+	Readable & Concise – Replaces long loops with simple queries
+	Type-Safe – Errors are caught at compile-time
+	Consistent Syntax – Works with Arrays, Lists, Databases, XML, etc.
+	Optimized Performance – Uses lazy evaluation for efficiency
+
+Types of LINQ Queries/Types of LINQ Providers in .NET
+	LINQ to Objects - Queries collections (Lists, Arrays, dictionary, etc.)
+	LINQ to SQL (Entity Framework) - Queries SQL Server databases using System.Data.Linq
+	LINQ to XML (XLINQ) - Queries XML documents using System.Xml.Linq
+	LINQ to Entities - Queries Entity Framework models(DbContext)
+	LINQ to DataSet - Queries in-memory DataSet and DataTable
+
+How LINQ Works?
+	Data Source: Any collection (List, Array, Database, etc.)
+	Query Creation: Using LINQ methods (Where(), Select(), etc.)
+	Query Execution: Results are fetched when needed (lazy evaluation)
+
+Query Syntax vs. Method Syntax
+	Query Syntax (SQL-like, readable)
+	Method Syntax (Fluent API, chainable)
+		Both syntaxes give the same result, but method syntax is more commonly used in real projects.
+
+Lambda Expressions in LINQ
+	are anonymous functions used in LINQ method syntax to create concise and readable queries.
+	
+LINQ API in .NET
+	The LINQ API is built into System.Linq and provides a set of methods to perform operations on IEnumerable<T> and IQueryable<T>.
+	--> Key Namespaces in LINQ API
+		System.Linq: Core LINQ methods for in-memory collections (IEnumerable<T>)
+		System.Data.Linq: LINQ to SQL (for database queries)
+		System.Xml.Linq: LINQ to XML (for querying XML documents)
+		System.Linq.Expressions: Used for dynamic LINQ queries
+	--> The LINQ API consists of:
+		1. Standard Query Operators (already covered earlier)
+		2. LINQ Providers (for different data sources)
+		3. Deferred vs. Immediate Execution
+		4. LINQ Expression Trees
+		5. Parallel LINQ (PLINQ)
+
+Deferred Execution vs. Immediate Execution
+1. Deferred Execution
+	Query is not executed immediately when defined.
+	It is executed only when iterated (foreach, .ToList(), .First(), etc.).
+	Benefits: Improves performance and reduces memory usage.
+2. Immediate Execution
+	Query executes immediately and returns a result.
+	Methods like .ToList(), .ToArray(), .Count(), .Sum() force execution.
+
+LINQ Expression Trees
+	Expression Trees represent LINQ queries as an object model.
+	Used in LINQ to SQL, Entity Framework, and dynamic queries.
+
+
+
+
+System.LINQ and System.Linq.Expression diff
+LINQ to DataSet - Queries in-memory DataSet and DataTable --> what is in memory dataset and datatable, like ADO?
+Expression in LINQ
