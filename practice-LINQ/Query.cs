@@ -1,6 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -52,6 +53,25 @@ namespace practice_LINQ
             var results = numbers.Where(n => n > 2).ToList(); // Query executes immediately
             numbers.Add(6); // Modifying source won't affect `results`
             Console.WriteLine(string.Join(", ", results)); // Output: 3, 4, 5
+        }
+        public void LambdaExp()
+        {
+            Func<int, int> square = x => x * x;  // Single parameter, single expression
+            Func<int, int, int> add = (a, b) => a + b;  // Multiple parameters
+
+            Console.WriteLine("Square: " + square(2));
+            Console.WriteLine("Add: " + add(2, 3));
+        }
+        public void ExpressionLINQ()
+        {
+            Expression<Func<int, bool>> isEven = num => num % 2 == 0;
+            Console.WriteLine(isEven);
+        }
+        public void ParallelLINQ()
+        {
+            List<int> numbers = Enumerable.Range(1, 1000000).ToList();
+            var evenNumbers = numbers.AsParallel().Where(n => n % 2 == 0).ToList();
+            Console.WriteLine("Total Evens: " + evenNumbers.Count);
         }
     }
 }

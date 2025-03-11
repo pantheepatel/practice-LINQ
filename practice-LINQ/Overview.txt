@@ -1,3 +1,8 @@
+LINQ - Language Integrated Query
+LINQ provides a common syntax that allows us to query the data from various data sources in a uniform manner.
+LINQ Provider is a software component that sits between the LINQ Queries and the Data Source. 
+LINQ (Language Integrated Query) providers are components that enable querying against a specific data source using the LINQ syntax in .NET
+
 What is LINQ?
 LINQ (Language Integrated Query) is a query syntax in C# that allows you to retrieve and manipulate data from various sources (Collections, Databases, XML, etc.) using a single, consistent query language.
 
@@ -24,8 +29,9 @@ Query Syntax vs. Method Syntax
 	Method Syntax (Fluent API, chainable)
 		Both syntaxes give the same result, but method syntax is more commonly used in real projects.
 
-Lambda Expressions in LINQ
+Lambda Expressions in LINQ:: SYNTAX :: (parameters) => expression_or_statement_block;
 	are anonymous functions used in LINQ method syntax to create concise and readable queries.
+
 	
 LINQ API in .NET
 	The LINQ API is built into System.Linq and provides a set of methods to perform operations on IEnumerable<T> and IQueryable<T>.
@@ -53,10 +59,21 @@ Deferred Execution vs. Immediate Execution
 LINQ Expression Trees
 	Expression Trees represent LINQ queries as an object model.
 	Used in LINQ to SQL, Entity Framework, and dynamic queries.
+	Lambda expressions can be stored as data (Expression Trees) and analyzed dynamically.
+
+Difference Between Lambda and Expression Trees
+	Feature			Lambda Expression (Func<>)						Expression Tree (Expression<>)
+	Execution		Directly executes								Builds a tree structure
+	Use Case		In-memory collections (LINQ to Objects)			LINQ to SQL, EF, dynamic queries
+	Modification	Cannot modify									Can be modified at runtime
 
 
+Parallel LINQ (PLINQ)
+	allows parallel execution of LINQ queries to improve performance.
+	AsParallel() enables multi-threading for faster query execution.
 
 
 System.LINQ and System.Linq.Expression diff
 LINQ to DataSet - Queries in-memory DataSet and DataTable --> what is in memory dataset and datatable, like ADO?
 Expression in LINQ
+Custom LINQ Operators
