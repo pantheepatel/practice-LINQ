@@ -39,6 +39,11 @@ namespace practice_LINQ
             var evenNumbers = numbers.Where(num => num % 2 == 0);
             Console.WriteLine(evenNumbers);
         }
+        public void MixedSyntax()
+        {
+            var MethodSyntax = (from obj in numbers where obj > 5 select obj).Sum();
+            Console.Write("Sum Is : " + MethodSyntax);
+        }
         public void DeferredExecution()
         {
             var query = numbers.Where(n => n > 2); // Query is not executed yet

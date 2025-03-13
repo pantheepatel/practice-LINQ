@@ -25,7 +25,7 @@ How LINQ Works?
 	Query Execution: Results are fetched when needed (lazy evaluation)
 
 Query Syntax vs. Method Syntax
-	Query Syntax (SQL-like, readable)
+	Query Syntax (SQL-like, Comprehension Syntax, readable)
 	Method Syntax (Fluent API, chainable)
 		Both syntaxes give the same result, but method syntax is more commonly used in real projects.
 
@@ -71,6 +71,15 @@ Difference Between Lambda and Expression Trees
 Parallel LINQ (PLINQ)
 	allows parallel execution of LINQ queries to improve performance.
 	AsParallel() enables multi-threading for faster query execution.
+
+
+
+Key Characteristic of IEnumerator in C#:
+	Purpose: It provides a simple iteration over a collection of a specified type. It’s primarily used for in-memory collections like arrays, lists, etc.
+	Execution: When you use LINQ methods on an IEnumerable, the query is executed in the client’s memory. This means all the data is loaded into memory from the data source (like a database), and the operation is performed.
+	Methods: The extension methods for IEnumerable are defined in the System.Linq.Enumerable class.
+	Deferred Execution: It supports deferred execution, but the query logic is executed locally on the client side.
+	Use Case: Best suited for working with in-memory data where the dataset is not too large.
 
 
 System.LINQ and System.Linq.Expression diff

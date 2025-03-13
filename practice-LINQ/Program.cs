@@ -13,6 +13,8 @@ namespace practice_LINQ
             QueryObj.WithLINQQuerySyntax();
             // 2. Method Syntax (Fluent API)
             QueryObj.WithLINQMethodSyntax();
+            // 3. Mixed Syntax
+            QueryObj.MixedSyntax();
             // Deferred vs Immediate
             QueryObj.DeferredExecution();
             QueryObj.ImmediateExecution();
