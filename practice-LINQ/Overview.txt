@@ -72,17 +72,52 @@ Parallel LINQ (PLINQ)
 	allows parallel execution of LINQ queries to improve performance.
 	AsParallel() enables multi-threading for faster query execution.
 
+Extension Methods: allow us to add methods to existing types without creating a new derived type, recompiling, or modifying the original type.
+	
+LINQ Operators: are nothing but a set of extension methods used to write the LINQ Query.
 
-
-Key Characteristic of IEnumerator in C#:
+IEnumerator in C#: Whenever we want to work with in-memory objects, we need to use IEnumerator.
+	Part of: System.Collections
 	Purpose: It provides a simple iteration over a collection of a specified type. It’s primarily used for in-memory collections like arrays, lists, etc.
 	Execution: When you use LINQ methods on an IEnumerable, the query is executed in the client’s memory. This means all the data is loaded into memory from the data source (like a database), and the operation is performed.
 	Methods: The extension methods for IEnumerable are defined in the System.Linq.Enumerable class.
 	Deferred Execution: It supports deferred execution, but the query logic is executed locally on the client side.
 	Use Case: Best suited for working with in-memory data where the dataset is not too large.
+	GetEnumerator Method:
+		This is the only method defined in the IEnumerable interface. It returns an IEnumerator object, which provides the ability to iterate through the collection by exposing a Current property and MoveNext() and Reset() methods.
+
+IQueryable in C#:  is an interface that is used to query data from a data source. is designed for querying data sources where the query is not executed until the object is enumerated.
+	Part of: System.Linq
+	Purpose: It is intended to query data from out-of-memory sources, like a database or web service. It is a powerful feature for LINQ, SQL, and Entity Framework.
+	Execution: The query logic is translated into a format suitable for the data source (like SQL for a relational database). The query is executed on the server side, which can improve performance and reduce network traffic.
+	Methods: The extension methods for IQueryable are defined in the System.Linq.Queryable class.
+	Deferred Execution: Supports deferred execution, and the query is executed in the data source (like a database).
+	Use Case: This is ideal for remote data sources, like databases, where you want to leverage server-side resources and minimize data transfer.
+
+Key Differences Between IEnumerable and IQueryable in C#
+	Execution Context: IEnumerable executes in the client memory, whereas IQueryable executes on the data source.
+	Suitability: IEnumerable is suitable for LINQ to Objects and working with in-memory data. IQueryable is suitable for LINQ to SQL or Entity Framework to interact with databases.
+	Performance: IQueryable can perform better for large data sets as it allows the database to optimize and filter data.
+
+
+
+
+
+
+
+
+
+
 
 
 System.LINQ and System.Linq.Expression diff
 LINQ to DataSet - Queries in-memory DataSet and DataTable --> what is in memory dataset and datatable, like ADO?
-Expression in LINQ
+Expression in LINQ, Expression Tree in LINQ
 Custom LINQ Operators
+Deferred Execution vs Immediate Execution in LINQ - https://dotnettutorials.net/lesson/deferred-execution-vs-immediate-execution-in-linq/
+groupby vs tolookup
+https://dotnettutorials.net/lesson/paging-using-skip-and-take-method/
+https://dotnettutorials.net/lesson/defaultifempty-method-in-linq/ - from joins
+from https://dotnettutorials.net/lesson/linq-joins-in-csharp/ to https://dotnettutorials.net/lesson/linq-cross-join/
+AsEnumerable, AsQueryable from lms, with tolist,todictionary,...
+let and into keywords in linq

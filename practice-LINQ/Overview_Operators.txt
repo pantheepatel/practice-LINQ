@@ -1,0 +1,82 @@
+
+** Filtering - to filter data according to conditions
+	Where - filters based on condition
+	OfType -  filters specific data from a data source based on the data type we passed to this operator.
+
+** Sorting - managing the data in a particular order.
+	OrderBy - sorts elements in ascending order based on a specified key
+	OrderByDescending - to sort in Descending order
+	ThenBy - ThenBy operator is often used after OrderBy or OrderByDescending to provide a secondary level of sorting(ascending)
+	ThenByDescending - performs a secondary descending sort on elements with the same values after the primary sort.
+	Reverse - simple way to reverse the current order.
+	ThebBy, ThenByDescending not present in Query Syntax of LINQ
+
+** Grouping
+	GroupBy - groups elements that share a common attribute, allowing us to perform operations on each group.
+	ToLookup - similar to GroupBy, but it returns a Lookup<TKey, TElement> object that allows you to access the elements in a group directly by key.
+	Lookup vs. GroupBy: While ToLookup and GroupBy both group elements by key, ToLookup immediately executes and returns a Lookup<TKey, TElement>, whereas GroupBy uses deferred execution and returns an IEnumerable<IGrouping<TKey, TElement>>.
+
+** Join
+	GroupJoin
+	Join
+
+** Projection - mechanism used to select the data from a data source
+	Select - 
+	SelectMany - used to project each element of a sequence, collection, data source to an IEnumerable<T> type and flatten the resulting sequences into one sequence.
+
+** Aggregation - perform mathematical operations on sequences of numeric data, also used to compute a single value from a sequence of values
+	Aggregate - custom aggregation on the values of a sequence
+	Average
+	Count - number of elements in a sequence
+	LongCount - when the count might exceed the range of an int
+	Max
+	Min
+	Sum
+
+** Quantifiers - to check the existence of elements in a data source
+	All - true if all elements in a sequence satisfy a condition
+	Any - true if any element in a sequence satisfies a condition
+	Contains - true if a sequence contains a specified element
+
+** Elements - return a single element from a data source using the element index position or based on a predicate(condition)
+	ElementAt - returns the element at a specified index in a sequence, throws an exception if the index is out of range
+	ElementAtOrDefault - returns the element at a specified index in a sequence or a default value if the index is out of range
+	First - returns the first element in a sequence that satisfies a specified condition, throws an exception if no such element exists
+	FirstOrDefault - returns the first element in a sequence that satisfies a specified condition or a default value if no such element exists
+	Last - returns the last element in a sequence that satisfies a specified condition, throws an exception if no such element exists
+	LastOrDefault - returns the last element in a sequence that satisfies a specified condition or a default value if no such element exists
+	Single - returns a single, specific element from a sequence, throws an exception if no such element exists or more than one element satisfies the condition
+	SingleOrDefault - returns a single, specific element from a sequence or a default value if no such element exists or more than one element satisfies the condition
+
+** Set - to produce the result set based on the presence and absence of elements within the same or different data sources.
+	Distinct - distinct elements from a collection, effectively removing duplicates
+	Except - returns the elements from the first sequence that do not exist in the second sequence
+	Intersect - returns a new sequence that includes elements that exist in both of the source sequence
+	Union - combines two sequences and returns a new sequence that contains the unique elements from both
+
+** Partitioning - to divide the data into parts
+	Skip - skips a specified number of elements in a sequence and returns the remaining elements, starting from the specified index
+	SkipWhile - skips elements in a sequence as long as a specified condition is true and then returns the remaining elements
+	Take - returns a specified number of elements from the start of a sequence, starting from the first element
+	TakeWhile - returns elements from a sequence as long as a specified condition is true, and then skips the remaining elements
+
+** Concatenation	
+	Concat - Concat Method concatenates two sequences into one sequence without removing the duplicate elements.
+	diff between union and concat is only union returns both sequence with distinct while concat doesn't remove duplicates.
+
+** Equality	
+	SequenceEqual - checks if two sequences are equal, i.e., have the same elements in the same order.
+
+** Generation	
+	DefaultEmpty
+	Empty
+	Range - generates a sequence of integers within a specified range
+	Repeat
+
+** Conversion	
+	AsEnumerable
+	AsQueryable
+	Cast
+	ToArray
+	ToDictionary
+	ToList
